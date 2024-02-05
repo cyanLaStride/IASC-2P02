@@ -66,7 +66,7 @@ scene.add(plane)
 // testSphere
 //const geometry = new THREE.SphereGeometry(1)
 //const geometry = new THREE.BoxGeometry(2,3,4)
-const geometry = new THREE.TorusKnotGeometry()
+const geometry = new THREE.DodecahedronGeometry()
 const material = new THREE.MeshNormalMaterial()
 /* MeshBasicMaterial is shadowless
 const material = new THREE.MeshBasicMaterial({
@@ -86,8 +86,10 @@ scene.add(object)
 const ui = new datBoi.GUI()
 
 // ui object
-const uiObject = {}
-uiObject.play = false
+const uiObjectPosition = {}
+uiObjectPosition.play = false
+const uiObjectRotation = {}
+uiObjectRotation.play = false
 
 // plane ui
 const planeFolder = ui.addFolder('Plane')
@@ -103,11 +105,24 @@ objectFolder
     .min(-5)
     .max(5)
     .step(0.1)
-    .name('Y')
+    .name('Position Y')
+    .listen()
 
 objectFolder
-    .add(uiObject, 'play')
-    .name('Animate sphere')
+    .add(object.rotation, 'x')
+    .min(-Math.PI)
+    .max(Math.PI)
+    .step(0.1)
+    .name('Rotation X')
+    .listen()
+
+objectFolder
+    .add(uiObjectPosition, 'play')
+    .name('Animate object position')
+
+objectFolder
+    .add(uiObjectRotation, 'play')
+    .name('Animate object rotation')
 
 /*
    animation loop
@@ -123,8 +138,11 @@ const animation = () => {
     //plane.rotation.x = Math.PI * elapsedTime * 0.1
 
     // animate object
-    if(uiObject.play){
+    if(uiObjectPosition.play){
         object.position.y = Math.sin(elapsedTime * 0.2) * 2
+    }
+    if(uiObjectRotation.play){
+        object.rotation.x = Math.sin(elapsedTime * 0.2) * Math.PI
     }
 
     // controls
