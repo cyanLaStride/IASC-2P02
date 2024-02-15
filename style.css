@@ -1,0 +1,29 @@
+body {
+    background-color: black;
+    color: white;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+h1 {
+    font-size: 36px;
+    color: #008282;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+li {
+    font-size: 24px;
+    list-style-type: none;
+}
+
+a {
+    color: #e00707;
+    text-decoration: none;
+}
+
+a:hover {
+    color: cyan;
+}
