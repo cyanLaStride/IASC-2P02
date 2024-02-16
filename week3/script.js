@@ -50,7 +50,8 @@ const animation = () => {
     const elapsedTime = clock.getElapsedTime()
 
     // animate testSphere
-    testSphere.position.y = Math.sin(elapsedTime)*5
+    testSphere.position.y = Math.sin(elapsedTime)
+    testSphere.position.z = Math.sin(elapsedTime)*-2
 
     // renderer
     renderer.render(scene, camera)
