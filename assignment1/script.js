@@ -30,6 +30,11 @@ const mob = {
     rot3: 0.016
 }
 
+// time control
+var elapsedTime = 1
+var play = false
+var playFor = 0;
+
 /**
  * scene
  */
@@ -47,7 +52,7 @@ const camera = new THREE.PerspectiveCamera(
     0.1,
     100
 )
-camera.position.set(-7, 0, 7)
+camera.position.set(0, 0, -1)
 scene.add(camera)
 
 // renderer
@@ -62,12 +67,13 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap
 // controls
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
+controls.enabled = false
 
 /**
  * meshes
  */
 const caveMaterial = new THREE.MeshStandardMaterial({
-    color: new THREE.Color('grey'),
+    color: new THREE.Color('white'),
     side: THREE.DoubleSide
 })
 
@@ -77,6 +83,8 @@ const caveWall = new THREE.Mesh(caveWallGeometry, caveMaterial)
 caveWall.position.set(0, 0, -5)
 caveWall.receiveShadow = true
 scene.add(caveWall)
+
+controls.target = caveWall.position
 
 // barrierWall
 const barrierWallGeometry = new THREE.PlaneGeometry(10, 2)
@@ -126,7 +134,7 @@ scene.add(doll3)
  */
 
 // ambientLight
-const ambientLight = new THREE.AmbientLight(0x404040)
+const ambientLight = new THREE.AmbientLight(0x202020)
 scene.add(ambientLight)
 
 // directionalLight
@@ -148,6 +156,7 @@ scene.add(directionalLightHelper)
 /**
  * ui
  */
+/*
 const ui = new datBoi.GUI()
 
 const uiObject = {}
@@ -185,6 +194,52 @@ lightPositionFolder
     .name('Reset Position')
 
 /**
+ * interactions
+ */
+
+// continue
+document.querySelector('#continue').onclick = function() {
+    document.querySelector('#partTwo').classList.remove('hidden')
+    document.querySelector('#partOne').classList.add('hidden')
+    controls.target = torusKnot.position
+    camera.position.set(7, 0, 14)
+}
+
+// return
+document.querySelector('#return').onclick = function() {
+    document.querySelector('#partOne').classList.remove('hidden')
+    document.querySelector('#partTwo').classList.add('hidden')
+    controls.target = caveWall.position
+    camera.position.set(0, 0, -1)
+    elapsedTime = 1
+    document.querySelector('#final').classList.add('hidden')
+    play = false
+}
+
+// first
+document.querySelector('#change1').onclick = function() {
+    play = true
+    playFor = Math.PI * 19/24
+}
+
+// second
+document.querySelector('#change2').onclick = function() {
+    play = true
+    playFor = Math.PI * 13/24
+    document.querySelector('#final').classList.remove('hidden')
+}
+
+// third
+document.querySelector('#change3').onclick = function() {
+    play = true
+}
+
+// fourth
+document.querySelector('#change4').onclick = function() {
+    play = false
+}
+
+/**
  * animation loop
  */
 const clock = new THREE.Clock()
@@ -192,7 +247,18 @@ const clock = new THREE.Clock()
 // animate
 const animation = () => {
     //return elapsedTime
-    const elapsedTime = clock.getElapsedTime()
+    //const elapsedTime = clock.getElapsedTime()
+    const delta = clock.getDelta()
+    if(play){
+        elapsedTime += delta
+        if(playFor > 0){
+            playFor -= delta
+            if(playFor < 0){
+                play = false
+            }
+        }
+    }
+    
 
     // animate objects
     torusKnot.rotation.z = elapsedTime * mob.speed

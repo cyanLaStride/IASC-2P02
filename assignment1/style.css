@@ -1,7 +1,26 @@
+body {
+    width: 50%;
+    color: white;
+    font-size: 20px;
+    margin-left: 11%;
+}
+
 h1 {
     color: white;
     font-size: 48px;
-    text-align: center;
+}
+
+.clickable {
+    text-decoration: underline;
+    cursor: grab;
+}
+
+.clickable:hover {
+    color: red;
+}
+
+.hidden {
+    display: none;
 }
 
 .webgl {
@@ -10,4 +29,12 @@ h1 {
     left: 0;
     outline: none;
     z-index: -1;
+}
+
+.night {
+    color: #707070;
+}
+
+.day {
+    color: #0f0f0f;
 }
