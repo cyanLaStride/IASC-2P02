@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+    <title>3D Portfolio</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- three.js importmap -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://ga.jspm.io/npm:three@0.158.0/build/three.module.js"
+            }
+        }
+    </script>
+
+    <!-- three.js scene -->
+    <script src="script.js" type="module"></script>
+
+</head>
+<body>
+    <!-- canvas -->
+    <canvas class="webgl"></canvas>
+
+    <!-- splash -->
+    <section class="splash">
+        <h1>daniel vidberg</h1>
+    </section>
+
+    <!-- content -->
+    <section class="content" id="first">
+        <h1>about me</h1>
+        <p>"when you have the chance, take it. laugh, sing, dance. don't allow the night to end"</p>
+        <p><span class="clickable" id="click1">check it out</span></p>
+    </section>
+    <section class="content hidden" id="second">
+        <h1>interactive essay</h1>
+        <p>shadows and walls</p>
+        <p><span class="clickable" id="click2">next one</span></p>
+    </section>
+    <section class="content hidden" id="third">
+        <h1>data visualization</h1>
+        <p>aint done yet</p>
+        <p><span class="clickable" id="click3">back to beginning</span></p>
+    </section>
+</body>
