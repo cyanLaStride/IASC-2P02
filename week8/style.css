@@ -16,7 +16,7 @@ body {
     position: absolute;
     margin: 0 auto;
     text-align: center;
-    width: 100;
+    width: 100%;
 }
 
 .splash h1 {

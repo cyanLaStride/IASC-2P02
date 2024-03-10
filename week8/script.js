@@ -12,6 +12,31 @@ const sizes = {
     aspectRatio: window.innerWidth / window.innerHeight
 }
 
+let xDistance = 1
+let meshSize = 1
+
+// mobile
+if(sizes.aspectRatio < 1){
+    xDistance = 0.5
+    meshSize = 0.5
+}
+
+// resizing
+window.addEventListener('resize', () => {
+    // update sizes
+    sizes.width = window.innerWidth,
+    sizes.height = window.innerHeight,
+    sizes.aspectRatio = window.innerWidth / window.innerHeight
+
+    // update camera
+    camera.aspect = sizes.aspectRatio
+    camera.updateProjectionMatrix()
+
+    // update renderer
+    renderer.setSize(sizes.width, sizes.height)
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+})
+
 /**
  * scene
  */
@@ -29,7 +54,7 @@ const camera = new THREE.PerspectiveCamera(
     0.1,
     100
 )
-camera.position.set(1, 0, 3)
+camera.position.set(xDistance, 0, 3)
 scene.add(camera)
 
 // renderer
@@ -45,7 +70,7 @@ renderer.setSize(sizes.width, sizes.height)
  */
 
 // cube
-const cubeGeo = new THREE.BoxGeometry(1, 1, 1)
+const cubeGeo = new THREE.BoxGeometry(meshSize, meshSize, meshSize)
 const cubeMat = new THREE.MeshNormalMaterial()
 const cube = new THREE.Mesh(cubeGeo, cubeMat)
 
@@ -95,14 +120,27 @@ const animation = () => {
         if(cube.rotation.y <= Math.PI * 0.5){
             cube.rotation.y += 0.02
         }
+        if(cube.rotation.z >= Math.PI * 0){
+            cube.rotation.z -= 0.02
+        }
     }
     // part 3
     if(domObject.part == 3){
-
+        if(cube.rotation.y <= Math.PI * 0.5){
+            cube.rotation.y += 0.02
+        }
+        if(cube.rotation.z <= Math.PI * 0.5){
+            cube.rotation.z += 0.02
+        }
     }
     // reset
     if(domObject.part == 1){
-
+        if(cube.rotation.y >= Math.PI * 0){
+            cube.rotation.y -= 0.02
+        }
+        if(cube.rotation.z >= Math.PI * 0){
+            cube.rotation.z -= 0.02
+        }
     }
 
     // renderer
