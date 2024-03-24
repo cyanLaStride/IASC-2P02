@@ -1,0 +1,18 @@
+body {
+    margin: 0 auto;
+    background-color: black;
+}
+
+h1 {
+    color: #008282;
+    font-size: 48px;
+    text-align: center;
+}
+
+.webgl {
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+    z-index: -1;
+}
