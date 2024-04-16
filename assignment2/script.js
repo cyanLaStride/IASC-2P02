@@ -202,7 +202,7 @@ const parseTextandTerms = () => {
     // find term 3
     findTermInParsedText(uiobj.term3, 2)
 
-    console.log(uiobj.termArray)
+    //console.log(uiobj.termArray)
 }
 
 const findTermInParsedText = (term, position) => {
@@ -318,7 +318,7 @@ const drawVis = (dataPlace) => {
     console.log(scene.children[2].position)
 }
 
-console.log(scene.children[2])
+//console.log(scene.children[2])
 
 /**
  * animation loop

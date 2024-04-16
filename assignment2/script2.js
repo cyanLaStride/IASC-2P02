@@ -158,10 +158,10 @@ const findTermInParsedText = (term, material) => {
     for (let i = 0; i < uiobj.textArray.length; i++){
         //console.log(i, uiobj.textArray[i])
         /* the chapter finding machine
-        if(uiobj.textArray[i] === '15' && uiobj.textArray[i+1] === 'the' ){
+        if(uiobj.textArray[i] === 'the' && uiobj.textArray[i+1] === 'seated' ){
             console.log(i)
         }
-        */
+        //*/
         if(uiobj.textArray[i] === term){
             //console.log(i, term)
 
@@ -169,7 +169,7 @@ const findTermInParsedText = (term, material) => {
             let size = 14730
             if(i > 2596){
                 size = 11070
-                if(i > 5383){
+                if(i > 7771){
                     size = 90
                     if(i > 13246){
                         size = 89
@@ -191,8 +191,11 @@ const findTermInParsedText = (term, material) => {
                                                         size = 60
                                                         if(i > 48991){
                                                             size = 45
-                                                            if(i > 53777){
-                                                                size = 3
+                                                            if(i > 52474){
+                                                                size = 33
+                                                                if(i > 53777){
+                                                                    size = 3
+                                                                }
                                                             }
                                                         }
                                                     }
