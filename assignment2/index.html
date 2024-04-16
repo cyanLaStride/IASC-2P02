@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+    <title>Data Visualization Assignment</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- three.js importmap -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://ga.jspm.io/npm:three@0.158.0/build/three.module.js",
+                "OrbitControls": "https://ga.jspm.io/npm:three@0.158.0/examples/jsm/controls/OrbitControls.js",
+                "lil-gui": "https://ga.jspm.io/npm:lil-gui@0.19.1/dist/lil-gui.esm.js"
+            }
+        }
+    </script>
+
+    <!-- three.js scene -->
+    <script src="script.js" type="module"></script>
+    <script src="script2.js" type="module"></script>
+
+</head>
+<body>
+    <h1>Data Visualization:<br>
+    Three Days of Happiness</h1>
+    <h2>Daniel Vidberg</h2>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut blandit nunc vitae bibendum iaculis. Proin volutpat vel justo pulvinar auctor. Pellentesque luctus justo justo, at ultricies nibh luctus vitae. Mauris nec nunc sit amet arcu porttitor porta sit amet id nisi. Duis consectetur, mauris nec consequat scelerisque, lacus lorem dapibus turpis, non ullamcorper dui purus vel libero. Aliquam erat volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nullam libero ante, faucibus in tincidunt finibus, gravida nec felis.</p>
+
+    <p>Suspendisse efficitur, tortor et ultricies lobortis, sem est cursus urna, vel luctus velit mi sed massa. Suspendisse consectetur nibh at eros egestas auctor. Quisque eu purus porta, vestibulum lorem semper, aliquet elit. Nullam laoreet diam laoreet lacinia ultrices. Vivamus in viverra nulla. Proin sollicitudin hendrerit mattis. Donec vel magna sit amet ligula sagittis finibus. Morbi ut ligula aliquet, ornare risus at, facilisis nisi. Maecenas nec lectus quis urna malesuada tincidunt nec eu arcu. Sed feugiat neque lacus, sit amet molestie dolor dapibus ac. Donec et convallis purus, quis ultricies est. Sed rutrum sit amet velit ut gravida. Sed placerat gravida tempus. Nam molestie egestas nibh sit amet maximus. Nullam ornare libero risus.</p>
+
+    <!-- datavis 1 -->
+    <div class="canvas-container">
+        <h2>Characters in Three Days of Happiness</h2>
+        <!--
+        <ul>
+            <li id="red">Kusunoki</li>
+            <li id="green">Miyagi</li>
+            <li id="blue">Himeno</li>
+        </ul>
+        -->
+        <canvas class="webgl"></canvas>
+        <div id="parent1"></div>
+        <p>Left click and drag to rotate, right click and drag to move. Scroll to zoom.<p>
+    </div>
+    
+    <p>Aliquam efficitur venenatis nibh, eget scelerisque felis convallis et. Integer fermentum, dui eget vulputate suscipit, ligula lorem euismod justo, nec finibus magna felis sit amet justo. Aenean at ultrices orci, vitae accumsan ipsum. Vestibulum vel maximus enim, non consectetur dolor. Maecenas bibendum consequat libero, et vehicula augue finibus in. Sed pretium nec mi et gravida. Phasellus venenatis neque massa, vitae blandit urna volutpat quis. Quisque a ex dolor. Pellentesque vitae mauris turpis.</p>
+
+    <p>Nunc vitae leo diam. Nunc pellentesque sem non enim gravida, vitae mollis mauris laoreet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent nunc nunc, lacinia eget porttitor eget, maximus quis odio. Sed nec ullamcorper eros, nec lobortis turpis. Nullam vitae ex in nisi volutpat tristique. Aliquam tincidunt, velit vel iaculis sodales, magna ante vehicula lacus, eget aliquet quam mauris quis urna. Donec sollicitudin dolor quis quam congue finibus. Praesent sagittis, eros a hendrerit eleifend, dui libero accumsan leo, nec tempus odio risus ac turpis. In elit massa, finibus vel luctus ut, tempor non ipsum. Donec eget ultrices orci, id euismod diam.</p>
+
+    <!-- datavis 2 -->
+    <div class="canvas-container">
+        <h2>Goals in Three Days of Happiness</h2>
+        <canvas class="webgl2"></canvas>
+        <div id="parent2"></div>
+        <p>Left click and drag to rotate, right click and drag to move. Scroll to zoom.<p>
+    </div>
+
+    <p>Morbi dignissim augue ac turpis imperdiet, in ultricies dui aliquam. Vestibulum cursus erat id mi semper, et finibus dolor congue. Suspendisse potenti. Cras pellentesque, est ac imperdiet fringilla, nisi purus bibendum nibh, vel volutpat magna nisi eu velit. Suspendisse potenti. Aliquam iaculis imperdiet sapien in egestas. Praesent ut nisi lobortis, fermentum orci sit amet, sagittis nunc. Nullam id dictum augue, id eleifend mauris. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin lacinia tortor in diam interdum condimentum. Praesent convallis malesuada dignissim. Praesent eget porta dui. Praesent id mauris a sapien vestibulum facilisis.</p>
+</body>
